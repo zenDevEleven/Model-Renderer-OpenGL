@@ -48,6 +48,9 @@
     <ClCompile Include="Mesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="stb_image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mpch.h">
@@ -86,14 +89,402 @@
     <ClInclude Include="Mesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\Vertex.glsl" />
     <None Include="Shaders\Fragment.glsl" />
+    <None Include="Assets\Objs\Backpack\backpack.mtl" />
+    <None Include="Assets\Objs\LivroAzul\livroazul.mtl" />
+    <None Include="Assets\Objs\Street\Street.mtl" />
+    <None Include="assimp-vc143-mtd.dll" />
+    <None Include="Model Renderer OpenGL.aps" />
+    <None Include="SDL2.dll" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Model Renderer OpenGL.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Objs\Backpack\ao.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Backpack\diffuse.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Backpack\normal.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Backpack\roughness.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Backpack\specular.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\LivroAzul\Base Color Dentro.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\LivroAzul\Cube Base Color.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_1_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_1_Emissive.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_1_Metallic-Street_Build_1_Roughness%40channels=B.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_1_Metallic-Street_Build_1_Roughness%40channels=G.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_1_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_2_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_2_Metallic_png-Street_Build_2_Roughness_png%40cha.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_2_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_3_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_3_Metallic-Street_Build_3_Roughness%40channels=B.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_3_Metallic-Street_Build_3_Roughness%40channels=G.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_3_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_4_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_4_Metallic-Street_Build_4_Roughness%40channels=B.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_4_Metallic-Street_Build_4_Roughness%40channels=G.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_4_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_A_1_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_A_1_Metallic-Street_Build_A_1_Roughness%40channel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_A_1_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_A_2_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_A_2_Metallic-Street_Build_A_2_Roughness%40channel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_A_2_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_B_1_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_B_1_Emissive.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_B_1_Metallic-Street_Build_B_1_Roughness%40channel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_B_1_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_B_2_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_B_2_Metallic-Street_Build_B_2_Roughness%40channel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_B_2_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_C_1_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_C_1_Metallic_png-Street_Build_C_1_Roughness_png.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_C_1_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_C_2_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_C_2_Metallic-Street_Build_C_2_Roughness%40channel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_C_2_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_D_1_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_D_1_Metallic-Street_Build_D_1_Roughness%40channel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_D_1_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_D_2_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_D_2_Metallic-Street_Build_D_2_Roughness%40channel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_D_2_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_E_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_E_Metallic-Street_Build_E_Roughness%40channels=B.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_E_Metallic-Street_Build_E_Roughness%40channels=G.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_E_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_F_1_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_F_1_Metallic_png-Street_Build_F_1_Roughness_png.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_F_1_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_F_2_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_F_2_Metallic_png-Street_Build_F_2_Roughness_png.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_F_2_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_G_1_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_G_1_Metallic-Street_Build_G_1_Roughness%40channel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_G_1_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_G_2_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_G_2_Metallic-Street_Build_G_2_Roughness%40channel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_G_2_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_H_1_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_H_1_Metallic_png-Street_Build_H_1_Roughness_png.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_H_1_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_H_2_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_H_2_Metallic-Street_Build_H_2_Roughness%40channel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_H_2_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_I_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_I_Metallic-Street_Build_I_Roughness%40channels=B.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_I_Metallic-Street_Build_I_Roughness%40channels=G.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_I_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_J_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_J_Metallic-Street_Build_J_Roughness%40channels=B.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_J_Metallic-Street_Build_J_Roughness%40channels=G.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Build_J_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_ground_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_ground_Metallic_png-Street_ground_Roughness%40channels=.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_ground_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_pole_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_pole_Emissive.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_pole_Metallic_png-Street_pole_Roughness_png%40channels=.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_pole_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_01_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_01_Metallic_png-Street_Props_01_Roughness_png%40c.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_01_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_02_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_02_Metallic-Street_Props_02_Roughness%40channels=.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_02_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_03_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_03_Emissive.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_03_Metallic_png-Street_Props_03_Roughness_png%40c.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_03_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_04_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_04_Emissive.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_04_Metallic-Street_Props_04_Roughness%40channels=.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_04_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_05_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_05_Emissive.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_05_Metallic_png-Street_Props_05_Roughness_png%40c.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_05_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_06_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_06_Metallic-Street_Props_06_Roughness%40channels=.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_06_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_07_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_07_Metallic-Street_Props_07_Roughness%40channels=.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_07_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_08_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_08_Emissive.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_08_Metallic-Street_Props_08_Roughness%40channels=.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_08_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_09_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_09_Metallic-Street_Props_09_Roughness%40channels=.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_09_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_10_BaseColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_10_Emissive.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_10_Metallic-Street_Props_10_Roughness%40channels=.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Objs\Street\Street_Props_10_NormalOpemGL.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Textures\awesomeface.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Textures\container.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Textures\planks.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="Assets\Objs\Backpack\backpack.obj" />
+    <Object Include="Assets\Objs\LivroAzul\livroazul.obj" />
+    <Object Include="Assets\Objs\Street\Street.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Assets\Objs\Backpack\source_attribution.txt" />
   </ItemGroup>
 </Project>
