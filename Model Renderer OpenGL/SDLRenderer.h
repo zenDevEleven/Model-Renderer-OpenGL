@@ -8,8 +8,8 @@ class SDLRenderer {
 
 		static inline SDL_Window* GetWindow() { return window; }
 
-private:
-	static SDL_WindowFlags windowFlags;
-	static SDL_Window* window;
+	private:
+		static SDL_WindowFlags windowFlags;
+		static SDL_Window* window;
 
 };

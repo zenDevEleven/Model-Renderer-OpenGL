@@ -106,13 +106,14 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>mpch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependecies\Glad\include;$(SolutionDir)Dependecies\glm;$(SolutionDir)Dependecies\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependecies\Glad\include;$(SolutionDir)Dependecies\glm;$(SolutionDir)Dependecies\SDL2\include;$(SolutionDir)Dependecies\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependecies\SDL2\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependecies\SDL2\lib\x64\;$(SolutionDir)Dependecies\Assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp-vc143-mtd.lib;SDL2.lib;SDL2main.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -135,22 +136,40 @@
     <ClCompile Include="..\Dependecies\Glad\src\glad.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Buffer.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Model.cpp" />
     <ClCompile Include="mpch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">mpch.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="OpenGLRenderer.cpp" />
     <ClCompile Include="SDLRenderer.cpp" />
+    <ClCompile Include="ShaderRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="Buffer.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="Events\KeyboardEvents.h" />
+    <ClInclude Include="Events\MouseEvents.h" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Model.h" />
     <ClInclude Include="mpch.h" />
     <ClInclude Include="OpenGLRenderer.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SDLRenderer.h" />
+    <ClInclude Include="ShaderRenderer.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shaders\Fragment.shader" />
-    <None Include="Shaders\Vertex.shader" />
+    <None Include="Shaders\Fragment.glsl" />
+    <None Include="Shaders\Vertex.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Model Renderer OpenGL.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

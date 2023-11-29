@@ -1,15 +1,12 @@
 #include "mpch.h"
+#include "Application.h"
 
-#include "SDLRenderer.h"
-#include "OpenGLRenderer.h"
+class  Application;
 
+ int main(int agrc, char** agrv) {
 
-int main(int agrc, char** agrv) {
-
-
-	while (true) {
-
-	}
+	Application app;
+	app.StartAndRun();
 
 	return 0;
 }

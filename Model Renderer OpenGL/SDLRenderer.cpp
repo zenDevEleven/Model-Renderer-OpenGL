@@ -4,8 +4,6 @@
 SDL_Window* SDLRenderer::window;
 SDL_WindowFlags SDLRenderer::windowFlags = (SDL_WindowFlags)(SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
 
-
-
 void SDLRenderer::Init()
 {
 	SDL_Init(SDL_INIT_VIDEO);
@@ -14,6 +12,8 @@ void SDLRenderer::Init()
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 2);
 	SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
+
+	std::cout << "Init SDL Initialized" << std::endl;
 }
 
 int SDLRenderer::CreateWindow()
