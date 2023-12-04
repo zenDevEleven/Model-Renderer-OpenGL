@@ -22,8 +22,6 @@ void Application::StartAndRun()
 	Model jorge("Assets/Objs/LivroAzul/livroazul.obj", true);
 	Model jorge2("Assets/Objs/Street/Street.obj", false);
 
-	jorge.Translate(glm::vec3(0.0f, 10.0f, 0.0f));
-
 	m_Models.push_back(jorge);
 	m_Models.push_back(jorge2);
 
