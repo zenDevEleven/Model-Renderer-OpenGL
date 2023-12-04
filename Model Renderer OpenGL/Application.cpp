@@ -19,13 +19,13 @@ void Application::StartAndRun()
 	ShaderRenderer::CreateFragmentShader();					// Create a fragment shader
 	ShaderRenderer::CreateProgram();						// Links the vertex and fragment shaders to the program
 
-	Model jorge("Assets/Objs/Backpack/backpack.obj", true);
-	Model jorge3("Assets/Objs/Street/Street.obj", false);
+	Model jorge("Assets/Objs/LivroAzul/livroazul.obj", true);
+	Model jorge2("Assets/Objs/Street/Street.obj", false);
 
-	jorge3.SetScale(glm::vec3(0.2f, 0.2f, 0.2f));
+	jorge.Translate(glm::vec3(0.0f, 10.0f, 0.0f));
 
 	m_Models.push_back(jorge);
-	m_Models.push_back(jorge3);
+	m_Models.push_back(jorge2);
 
 	m_Camera = new Camera(90.0f, (1280.0f / 720.0f), 0.1f, 100.0f, true);
 
@@ -39,6 +39,8 @@ void Application::Run()
 		float now = SDL_GetTicks();
 		float deltaTime = (now - m_LastFrame) / 1000.0f;
 		m_LastFrame = now;
+
+		m_Camera->UpdateMatrices();
 
 		while (SDL_PollEvent(&m_Event) != 0)
 		{
@@ -61,7 +63,6 @@ void Application::Run()
 			model.Draw();
 		}
 		
-		m_Camera->UpdateMatrices();
 
 		SDL_GL_SwapWindow(SDLRenderer::GetWindow());
 	}

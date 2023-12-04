@@ -481,8 +481,6 @@
   </ItemGroup>
   <ItemGroup>
     <Object Include="Assets\Objs\Backpack\backpack.obj" />
-    <Object Include="Assets\Objs\LivroAzul\livroazul.obj" />
-    <Object Include="Assets\Objs\Street\Street.obj" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Objs\Backpack\source_attribution.txt" />

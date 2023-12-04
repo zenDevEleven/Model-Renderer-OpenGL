@@ -37,6 +37,7 @@ void Camera::UpdateMatrices()
 {
 	GLuint viewTrans = glGetUniformLocation(ShaderRenderer::GetShaderProgram(), "view");
 	GLuint projectionTrans = glGetUniformLocation(ShaderRenderer::GetShaderProgram(), "projection");
+
 	glUniformMatrix4fv(viewTrans, 1, GL_FALSE, glm::value_ptr(CameraViewMatrix));
 	glUniformMatrix4fv(projectionTrans, 1, GL_FALSE, glm::value_ptr(projectionMatrix));
 }
@@ -47,26 +48,21 @@ float Camera::GetCameraSpeed()
 }
 
 void Camera::UpdatePosition(AXIS axis, float deltaTime) {
+	glm::vec3 rightAxis = glm::normalize(glm::cross(forwardAxis, upAxis));
 
 	switch (axis)
 	{
 	case AXIS::FORWARD:
-		Position += (cameraSpeed * deltaTime) * forwardAxis;
+		Position += glm::normalize(glm::vec3(forwardAxis.x, 0.0f, forwardAxis.z)) * (cameraSpeed * deltaTime);
 		break;
 	case AXIS::BACKWARDS:
-		Position -= (cameraSpeed * deltaTime) * forwardAxis;
-		break;
-	case AXIS::UPWARDS:
-		Position -= (cameraSpeed * deltaTime) * upAxis;
-		break;
-	case AXIS::DOWNWARDS:
-		Position += (cameraSpeed * deltaTime) * upAxis;
+		Position -= glm::normalize(glm::vec3(forwardAxis.x, 0.0f, forwardAxis.z)) * (cameraSpeed * deltaTime);
 		break;
 	case AXIS::RIGHT:
-		Position += glm::normalize(glm::cross(forwardAxis, upAxis)) * (cameraSpeed * deltaTime);
+		Position += glm::normalize(glm::vec3(rightAxis.x, 0.0f, rightAxis.z)) * (cameraSpeed * deltaTime);
 		break;
 	case AXIS::LEFT:
-		Position -= glm::normalize(glm::cross(forwardAxis, upAxis)) * (cameraSpeed * deltaTime);
+		Position -= glm::normalize(glm::vec3(rightAxis.x, 0.0f, rightAxis.z)) * (cameraSpeed * deltaTime);
 		break;
 	default:
 		break;
@@ -97,6 +93,9 @@ void Camera::UpdateRotation(float xOffset, float yOffset) {
 	front.x = cos(glm::radians(pitch)) * cos(glm::radians(yaw));
 	front.y = sin(glm::radians(pitch));
 	front.z = cos(glm::radians(pitch)) * sin(glm::radians(yaw));
+
+	glm::vec3 rightAxis = glm::normalize(glm::cross(forwardAxis, WorldupAxis));
+	upAxis = glm::normalize(glm::cross(rightAxis, forwardAxis));
 
 	forwardAxis = glm::normalize(front);
 	CameraViewMatrix = glm::lookAt(Position, Position + forwardAxis, upAxis);

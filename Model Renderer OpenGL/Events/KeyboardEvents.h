@@ -20,12 +20,6 @@ public:
 		else if (keyState[SDL_SCANCODE_S]) {
 			camera->UpdatePosition(AXIS::BACKWARDS, deltaTime);
 		}
-		else if (keyState[SDL_SCANCODE_E]) {
-			camera->UpdatePosition(AXIS::DOWNWARDS, deltaTime);
-		}
-		else if (keyState[SDL_SCANCODE_Q]) {
-			camera->UpdatePosition(AXIS::UPWARDS, deltaTime);
-		}
 	}
 
 };
