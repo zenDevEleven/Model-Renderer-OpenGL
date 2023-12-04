@@ -41,5 +41,5 @@ private:
 	static float lastY;
 };
 
-float MouseEvents::lastX = 0.0f;
-float MouseEvents::lastY = 0.0f;
+float MouseEvents::lastX = 640.0f;
+float MouseEvents::lastY = 360.0f;

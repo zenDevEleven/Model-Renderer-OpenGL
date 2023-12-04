@@ -36,7 +36,11 @@ private:
 	glm::mat4 CameraViewMatrix = glm::mat4(1.0f);
 	glm::mat4 projectionMatrix = glm::mat4(1.0f);
 
-	float FOV = 0; 
+	GLuint projectionTrans;
+	GLuint viewTrans;
+
+	float FOV = 0.0f; 
+	float MaxFOV = 0.0f; 
 	float aspectRadio = 1.7f;
 	float nearPlane = 0.1f;
 	float farPlane = 100.0f;

@@ -18,6 +18,7 @@ Model::Model(std::string const& path, bool fliped)
 	modelAttribute = glGetUniformLocation(ShaderRenderer::GetShaderProgram(), "model");
 }
 
+
 void Model::AddTexture(const char* texturePath)
 {
 	texture.push_back(0);
@@ -60,10 +61,11 @@ void Model::AddTexture(const char* texturePath)
 
 void Model::Draw()
 {
+	glUniformMatrix4fv(modelAttribute, 1, GL_FALSE, glm::value_ptr(modelMatrix));
+	
 	for (unsigned int i = 0; i < meshes.size(); i++)
 		meshes[i].Draw();
 
-	glUniformMatrix4fv(modelAttribute, 1, GL_FALSE, glm::value_ptr(modelMatrix));
 }
 
 void Model::loadModel(std::string path)
@@ -241,4 +243,12 @@ void Model::SetScale(glm::vec3 newScale)
 {
 	Scale = newScale;
 	modelMatrix = glm::scale(modelMatrix, Scale);
+}
+
+void Model::SetRotation(glm::vec3 _RotateAxis, float _rotationValue)
+{
+	RotationAxis = _RotateAxis;
+	RotationValue = _rotationValue;
+
+	modelMatrix = glm::rotate(modelMatrix, RotationValue, RotationAxis);
 }

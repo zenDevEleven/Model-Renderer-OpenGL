@@ -11,6 +11,7 @@ public:
 	void Translate(glm::vec3 newPos);
 	void AddToPosition(glm::vec3 vectorToAdd);
 	void SetScale(glm::vec3 newScale);
+	void SetRotation(glm::vec3 RotateAxis, float rotationValue);
 
 private:
 	std::vector<Mesh> meshes;
@@ -39,6 +40,8 @@ private:
 
 	glm::vec3 Position;
 	glm::vec3 Scale;
+	glm::vec3 RotationAxis;
+	float RotationValue;
 
 	GLuint modelAttribute;
 	glm::mat4 modelMatrix = glm::mat4(1.0f);
