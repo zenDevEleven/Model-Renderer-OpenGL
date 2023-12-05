@@ -2,7 +2,7 @@
 #include "Camera.h"
 #include "ShaderRenderer.h"
 
-Camera::Camera(float _FOV = 90.0f, float _aspectRadio = 0.0f, float _nearPlane = 0.0f, float _farPlane = 0.0f, bool InfiniteMouseCursor = false) {
+Camera::Camera(float _FOV = 0.0f, float _aspectRadio = 0.0f, float _nearPlane = 0.0f, float _farPlane = 0.0f, bool InfiniteMouseCursor = false) {
 	MaxFOV = _FOV;
 	aspectRadio = _aspectRadio;
 	nearPlane = _nearPlane;
@@ -21,7 +21,7 @@ Camera::Camera(float _FOV = 90.0f, float _aspectRadio = 0.0f, float _nearPlane =
 	projectionTrans = glGetUniformLocation(ShaderRenderer::GetShaderProgram(), "projection");
 
 	FOV = MaxFOV;
-	UpdateRotation(0.0f, 0.0f);
+	//UpdateRotation(0.0f, 0.0f);
 }
 
 glm::vec3 Camera::GetCameraPosition()

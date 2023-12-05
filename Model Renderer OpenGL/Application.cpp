@@ -22,6 +22,7 @@ void Application::StartAndRun()
 	Model livro("Assets/Objs/LivroAzul/livroazul.obj", true);
 	Model rua("Assets/Objs/Street/Street.obj", false);
 
+<<<<<<< HEAD
 
 	livro.Translate(glm::vec3(0.0f, 0.02f, -5.0f));
 	livro.SetScale(glm::vec3(0.3f, 0.3f, 0.3f));
@@ -29,6 +30,12 @@ void Application::StartAndRun()
 
 	m_Models.push_back(livro);
 	m_Models.push_back(rua);
+=======
+	jorge.Translate(glm::vec3(0.0f, 10.0f, 0.0f));
+
+	m_Models.push_back(jorge);
+	m_Models.push_back(jorge2);
+>>>>>>> parent of 3c0828c (s)
 
 	m_Camera = new Camera(90.0f, (1280.0f / 720.0f), 0.1f, 100.0f, true);
 
