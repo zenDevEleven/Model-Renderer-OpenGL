@@ -33,6 +33,8 @@ void Application::StartAndRun()
 =======
 	jorge.Translate(glm::vec3(0.0f, 10.0f, 0.0f));
 
+	jorge.Translate(glm::vec3(0.0f, 10.0f, 0.0f));
+
 	m_Models.push_back(jorge);
 	m_Models.push_back(jorge2);
 >>>>>>> parent of 3c0828c (s)
