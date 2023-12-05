@@ -108,6 +108,7 @@
       <PrecompiledHeaderFile>mpch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(SolutionDir)Dependecies\Glad\include;$(SolutionDir)Dependecies\glm;$(SolutionDir)Dependecies\SDL2\include;$(SolutionDir)Dependecies\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <BuildStlModules>true</BuildStlModules>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
