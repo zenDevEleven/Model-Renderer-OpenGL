@@ -2,20 +2,19 @@
 #include "Model.h"
 #include "ShaderRenderer.h"
 
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
 
 
 Model::Model(std::string const& path, bool fliped)
 {
 	stbi_set_flip_vertically_on_load(fliped);
 	loadModel(path);
-
+	modelAttribute = glGetUniformLocation(ShaderRenderer::GetShaderProgram(), "model");
 	Position = glm::vec3(0.0f, 0.0f, 0.0f);
 	Scale = glm::vec3(1.0f, 1.0f, 1.0f);
-
 	Translate(Position);
 	SetScale(Scale);
-
-	modelAttribute = glGetUniformLocation(ShaderRenderer::GetShaderProgram(), "model");
 }
 
 
@@ -229,18 +228,21 @@ unsigned int Model::TextureFromFile(const char* path, const std::string& directo
 
 void Model::Translate(glm::vec3 newPos)
 {
-	Position = newPos; 
-	modelMatrix = glm::translate(modelMatrix, newPos);
+	ResetMatrix();
+	Position = newPos;
+	modelMatrix = glm::translate(modelMatrix, Position);
 }
 
 void Model::AddToPosition(glm::vec3 vectorToAdd)
 {
+	ResetMatrix();
 	Position += vectorToAdd;
 	modelMatrix = glm::translate(modelMatrix, Position);
 }
 
 void Model::SetScale(glm::vec3 newScale)
 {
+	ResetMatrix();
 	Scale = newScale;
 	modelMatrix = glm::scale(modelMatrix, Scale);
 }
