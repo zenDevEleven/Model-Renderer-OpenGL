@@ -2,8 +2,6 @@
 #include "Model.h"
 #include "ShaderRenderer.h"
 
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
 
 
 Model::Model(std::string const& path, bool fliped)
@@ -228,21 +226,18 @@ unsigned int Model::TextureFromFile(const char* path, const std::string& directo
 
 void Model::Translate(glm::vec3 newPos)
 {
-	ResetMatrix();
 	Position = newPos;
 	modelMatrix = glm::translate(modelMatrix, Position);
 }
 
 void Model::AddToPosition(glm::vec3 vectorToAdd)
 {
-	ResetMatrix();
 	Position += vectorToAdd;
 	modelMatrix = glm::translate(modelMatrix, Position);
 }
 
 void Model::SetScale(glm::vec3 newScale)
 {
-	ResetMatrix();
 	Scale = newScale;
 	modelMatrix = glm::scale(modelMatrix, Scale);
 }

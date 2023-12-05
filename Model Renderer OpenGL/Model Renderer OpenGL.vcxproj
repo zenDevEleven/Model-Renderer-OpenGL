@@ -149,7 +149,9 @@
     <ClCompile Include="OpenGLRenderer.cpp" />
     <ClCompile Include="SDLRenderer.cpp" />
     <ClCompile Include="ShaderRenderer.cpp" />
-    <ClCompile Include="stb_image.cpp" />
+    <ClCompile Include="stb_image.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
@@ -303,11 +305,6 @@
     <Image Include="Assets\Textures\awesomeface.png" />
     <Image Include="Assets\Textures\container.jpg" />
     <Image Include="Assets\Textures\planks.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Object Include="Assets\Objs\Backpack\backpack.obj" />
-    <Object Include="Assets\Objs\LivroAzul\livroazul.obj" />
-    <Object Include="Assets\Objs\Street\Street.obj" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Objs\Backpack\source_attribution.txt" />

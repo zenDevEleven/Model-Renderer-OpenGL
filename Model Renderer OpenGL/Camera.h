@@ -30,7 +30,8 @@ public:
 private:
 	glm::vec3 Position = glm::vec3(0.0f, 0.0f, 0.0f);
 	glm::vec3 forwardAxis = glm::vec3(0.0f, 0.0f, -1.0f);
-	glm::vec3 upAxis = glm::vec3(0.0f, 1.0f, 0.0f);
+	glm::vec3 WorldupAxis = glm::vec3(0.0f, 1.0f, 0.0f);
+	glm::vec3 upAxis;
 
 	glm::mat4 CameraViewMatrix = glm::mat4(1.0f);
 	glm::mat4 projectionMatrix = glm::mat4(1.0f);

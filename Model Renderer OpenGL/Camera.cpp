@@ -4,6 +4,7 @@
 
 Camera::Camera(float _FOV = 0.0f, float _aspectRadio = 0.0f, float _nearPlane = 0.0f, float _farPlane = 0.0f, bool InfiniteMouseCursor = false) {
 	MaxFOV = _FOV;
+	FOV = MaxFOV;
 	aspectRadio = _aspectRadio;
 	nearPlane = _nearPlane;
 	farPlane = _farPlane;
@@ -20,8 +21,7 @@ Camera::Camera(float _FOV = 0.0f, float _aspectRadio = 0.0f, float _nearPlane = 
 	viewTrans = glGetUniformLocation(ShaderRenderer::GetShaderProgram(), "view");
 	projectionTrans = glGetUniformLocation(ShaderRenderer::GetShaderProgram(), "projection");
 
-	FOV = MaxFOV;
-	//UpdateRotation(0.0f, 0.0f);
+	UpdateRotation(0.0f, 0.0f);
 }
 
 glm::vec3 Camera::GetCameraPosition()
@@ -41,14 +41,7 @@ glm::mat4 Camera::GetCameraProjectionMatrix()
 
 void Camera::UpdateMatrices()
 {
-<<<<<<< HEAD
-=======
-	GLuint viewTrans = glGetUniformLocation(ShaderRenderer::GetShaderProgram(), "view");
-	GLuint projectionTrans = glGetUniformLocation(ShaderRenderer::GetShaderProgram(), "projection");
-<<<<<<< HEAD
->>>>>>> parent of cfae0fc (g)
-=======
->>>>>>> parent of cfae0fc (g)
+
 	glUniformMatrix4fv(viewTrans, 1, GL_FALSE, glm::value_ptr(CameraViewMatrix));
 	glUniformMatrix4fv(projectionTrans, 1, GL_FALSE, glm::value_ptr(projectionMatrix));
 }
@@ -59,26 +52,21 @@ float Camera::GetCameraSpeed()
 }
 
 void Camera::UpdatePosition(AXIS axis, float deltaTime) {
+	glm::vec3 rightAxis = glm::normalize(glm::cross(forwardAxis, upAxis));
 
 	switch (axis)
 	{
 	case AXIS::FORWARD:
-		Position += (cameraSpeed * deltaTime) * forwardAxis;
+		Position += glm::normalize(glm::vec3(forwardAxis.x, 0.0f, forwardAxis.z)) * (cameraSpeed * deltaTime);
 		break;
 	case AXIS::BACKWARDS:
-		Position -= (cameraSpeed * deltaTime) * forwardAxis;
-		break;
-	case AXIS::UPWARDS:
-		Position -= (cameraSpeed * deltaTime) * upAxis;
-		break;
-	case AXIS::DOWNWARDS:
-		Position += (cameraSpeed * deltaTime) * upAxis;
+		Position -= glm::normalize(glm::vec3(forwardAxis.x, 0.0f, forwardAxis.z)) * (cameraSpeed * deltaTime);
 		break;
 	case AXIS::RIGHT:
-		Position += glm::normalize(glm::cross(forwardAxis, upAxis)) * (cameraSpeed * deltaTime);
+		Position += glm::normalize(glm::vec3(rightAxis.x, 0.0f, rightAxis.z)) * (cameraSpeed * deltaTime);
 		break;
 	case AXIS::LEFT:
-		Position -= glm::normalize(glm::cross(forwardAxis, upAxis)) * (cameraSpeed * deltaTime);
+		Position -= glm::normalize(glm::vec3(rightAxis.x, 0.0f, rightAxis.z)) * (cameraSpeed * deltaTime);
 		break;
 	default:
 		break;
@@ -110,8 +98,12 @@ void Camera::UpdateRotation(float xOffset, float yOffset) {
 	front.y = sin(glm::radians(pitch));
 	front.z = cos(glm::radians(pitch)) * sin(glm::radians(yaw));
 
+	glm::vec3 rightAxis = glm::normalize(glm::cross(forwardAxis, WorldupAxis));
+	upAxis = glm::normalize(glm::cross(rightAxis, forwardAxis));
+
 	forwardAxis = glm::normalize(front);
 	CameraViewMatrix = glm::lookAt(Position, Position + forwardAxis, upAxis);
+
 
 }
 
