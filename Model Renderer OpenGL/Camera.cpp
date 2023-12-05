@@ -45,6 +45,9 @@ void Camera::UpdateMatrices()
 =======
 	GLuint viewTrans = glGetUniformLocation(ShaderRenderer::GetShaderProgram(), "view");
 	GLuint projectionTrans = glGetUniformLocation(ShaderRenderer::GetShaderProgram(), "projection");
+<<<<<<< HEAD
+>>>>>>> parent of cfae0fc (g)
+=======
 >>>>>>> parent of cfae0fc (g)
 	glUniformMatrix4fv(viewTrans, 1, GL_FALSE, glm::value_ptr(CameraViewMatrix));
 	glUniformMatrix4fv(projectionTrans, 1, GL_FALSE, glm::value_ptr(projectionMatrix));

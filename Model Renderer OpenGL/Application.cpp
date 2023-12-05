@@ -20,6 +20,7 @@ void Application::StartAndRun()
 	ShaderRenderer::CreateProgram();						// Links the vertex and fragment shaders to the program
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	Model livro("Assets/Objs/LivroAzul/livroazul.obj", true);
 	Model rua("Assets/Objs/Street/Street.obj", false);
 
@@ -47,6 +48,15 @@ void Application::StartAndRun()
 =======
 	m_Models.push_back(jorge3);
 >>>>>>> parent of cfae0fc (g)
+=======
+	Model jorge("Assets/Objs/Backpack/backpack.obj", true);
+	Model jorge3("Assets/Objs/Street/Street.obj", false);
+
+	jorge3.SetScale(glm::vec3(0.2f, 0.2f, 0.2f));
+
+	m_Models.push_back(jorge);
+	m_Models.push_back(jorge3);
+>>>>>>> parent of cfae0fc (g)
 
 	m_Camera = new Camera(90.0f, (1280.0f / 720.0f), 0.1f, 100.0f, true);
 
@@ -62,7 +72,10 @@ void Application::Run()
 		m_LastFrame = now;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of cfae0fc (g)
 =======
 >>>>>>> parent of cfae0fc (g)
 		while (SDL_PollEvent(&m_Event) != 0)
@@ -92,6 +105,9 @@ void Application::Run()
 =======
 		
 		m_Camera->UpdateMatrices();
+<<<<<<< HEAD
+>>>>>>> parent of cfae0fc (g)
+=======
 >>>>>>> parent of cfae0fc (g)
 
 		SDL_GL_SwapWindow(SDLRenderer::GetWindow());
